@@ -6,73 +6,73 @@
   <title>校園生態調查快速記錄工具</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-4">
+<body class="bg-pink-950 text-pink-100 min-h-screen flex items-center justify-center p-4">
 
-  <div class="max-w-md w-full bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl space-y-4">
+  <div class="max-w-md w-full bg-pink-900/60 backdrop-blur border border-pink-700/50 rounded-2xl p-6 shadow-2xl space-y-4">
     
     <!-- 標題區 -->
     <div>
-      <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase">Field Survey Tool</span>
-      <h1 class="text-xl font-bold text-white mt-0.5">🌿 校園生物資料填報</h1>
-      <p class="text-xs text-slate-400 mt-1">時間於送出時自動抓取，GPS 載入時自動偵測。</p>
+      <span class="text-xs font-bold text-pink-300 tracking-wider uppercase">Field Survey Tool</span>
+      <h1 class="text-xl font-bold text-white mt-0.5">🌸 校園生物資料填報</h1>
+      <p class="text-xs text-pink-300/80 mt-1">時間於送出時自動抓取，GPS 載入時自動偵測。</p>
     </div>
 
     <!-- GAS 網址設定 -->
-    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-      <label class="block text-[11px] text-slate-400 mb-1">Apps Script 部署網址 (Web App URL)</label>
+    <div class="bg-pink-950/80 p-3 rounded-xl border border-pink-800">
+      <label class="block text-[11px] text-pink-300 mb-1">Apps Script 部署網址 (Web App URL)</label>
       <input type="url" id="gasUrl" 
         placeholder="https://script.google.com/macros/s/.../exec" 
-        class="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-slate-200 outline-none focus:border-emerald-500 font-mono">
+        class="w-full bg-pink-900 border border-pink-700 rounded p-1.5 text-xs text-pink-100 outline-none focus:border-pink-400 font-mono">
     </div>
 
     <!-- 調查表單 -->
     <form id="recordForm" class="space-y-3.5">
       
       <!-- GPS 定位狀態（自動獲取，亦可手動重整） -->
-      <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-700/60">
+      <div class="bg-pink-950/70 p-3 rounded-xl border border-pink-700/60">
         <div class="flex justify-between items-center mb-1">
-          <span class="text-xs font-semibold text-cyan-400">🌐 手機 GPS 定位</span>
-          <button type="button" onclick="autoGetGPS()" class="text-[11px] text-cyan-400 hover:text-cyan-300 underline">
+          <span class="text-xs font-semibold text-rose-300">🌐 手機 GPS 定位</span>
+          <button type="button" onclick="autoGetGPS()" class="text-[11px] text-rose-300 hover:text-rose-200 underline">
             重新取得定位
           </button>
         </div>
         <input type="text" id="gpsField" readonly placeholder="正在抓取手機 GPS 經緯度..." 
-          class="w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs font-mono text-emerald-400 outline-none">
-        <p id="gpsStatus" class="text-[10px] text-slate-400 mt-1">📡 頁面已自動啟動定位服務...</p>
+          class="w-full bg-pink-900 border border-pink-800 rounded p-2 text-xs font-mono text-pink-200 outline-none">
+        <p id="gpsStatus" class="text-[10px] text-pink-300/80 mt-1">📡 頁面已自動啟動定位服務...</p>
       </div>
 
       <!-- 校園地點 -->
       <div>
-        <label class="block text-xs font-medium text-slate-300 mb-1">校園觀察地點 <span class="text-rose-400">*</span></label>
+        <label class="block text-xs font-medium text-pink-200 mb-1">校園觀察地點 <span class="text-rose-300">*</span></label>
         <input type="text" id="locationField" required placeholder="例如：生態池木棧道、操場西側樹林" 
-          class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-emerald-500">
+          class="w-full bg-pink-900/80 border border-pink-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-pink-400">
       </div>
 
       <!-- 物種名稱 -->
       <div>
-        <label class="block text-xs font-medium text-slate-300 mb-1">物種名稱 <span class="text-rose-400">*</span></label>
+        <label class="block text-xs font-medium text-pink-200 mb-1">物種名稱 <span class="text-rose-300">*</span></label>
         <input type="text" id="speciesField" required placeholder="例如：水黽、黑冠麻鷺、大花咸豐草" 
-          class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-emerald-500">
+          class="w-full bg-pink-900/80 border border-pink-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-pink-400">
       </div>
 
       <!-- 數量與單位 -->
       <div>
-        <label class="block text-xs font-medium text-slate-300 mb-1">數量與單位 <span class="text-rose-400">*</span></label>
+        <label class="block text-xs font-medium text-pink-200 mb-1">數量與單位 <span class="text-rose-300">*</span></label>
         <input type="text" id="quantityField" required placeholder="例如：3 隻、1 棵、大約 10 朵" 
-          class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-emerald-500">
+          class="w-full bg-pink-900/80 border border-pink-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-pink-400">
       </div>
 
       <!-- 備註 -->
       <div>
-        <label class="block text-xs font-medium text-slate-300 mb-1">備註說明 (選填)</label>
+        <label class="block text-xs font-medium text-pink-200 mb-1">備註說明 (選填)</label>
         <textarea id="notesField" rows="2" placeholder="觀察紀錄，如：成鳥正在草地覓食、群聚漂浮於水面..." 
-          class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white outline-none focus:border-emerald-500"></textarea>
+          class="w-full bg-pink-900/80 border border-pink-700 rounded-lg p-2 text-xs text-white outline-none focus:border-pink-400"></textarea>
       </div>
 
       <!-- 提交按鈕 -->
       <button type="submit" id="submitBtn" 
-        class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 font-bold rounded-xl text-sm shadow-lg transition active:scale-98">
-        📤 送出紀錄 (自動記下時間與座標)
+        class="w-full py-3 bg-pink-600 hover:bg-pink-500 font-bold rounded-xl text-sm shadow-lg transition active:scale-98 text-white">
+        🌸 送出紀錄 (自動記下時間與座標)
       </button>
     </form>
 
@@ -101,7 +101,7 @@
       }
 
       gpsStatus.innerText = "📡 正在定位中，請允許瀏覽器存取位置權限...";
-      gpsStatus.className = "text-[10px] text-amber-400 mt-1";
+      gpsStatus.className = "text-[10px] text-amber-300 mt-1";
 
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -111,11 +111,11 @@
           
           gpsField.value = `${lat}, ${lng}`;
           gpsStatus.innerText = `✅ 定位成功！誤差半徑約 ±${acc} 公尺`;
-          gpsStatus.className = "text-[10px] text-emerald-400 mt-1";
+          gpsStatus.className = "text-[10px] text-pink-300 mt-1";
         },
         (err) => {
           gpsStatus.innerText = `⚠️ 定位失敗: ${err.message} (請確認開啟手機定位服務與 HTTPS)`;
-          gpsStatus.className = "text-[10px] text-rose-400 mt-1";
+          gpsStatus.className = "text-[10px] text-rose-300 mt-1";
           gpsField.value = "未取得 (定位失敗)";
         },
         { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
@@ -151,7 +151,7 @@
         gps: gpsField.value || "未記錄",
         species: document.getElementById('speciesField').value.trim(),
         quantity: document.getElementById('quantityField').value.trim(),
-        notes: document.getElementById('notesField').value.trim()
+    notes: document.getElementById('notesField').value.trim()
       };
 
       submitBtn.disabled = true;
@@ -165,7 +165,7 @@
           body: JSON.stringify(payload)
         });
 
-        statusAlert.className = "text-center text-xs p-3 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-700 block";
+        statusAlert.className = "text-center text-xs p-3 rounded-lg bg-pink-950 text-pink-200 border border-pink-700 block";
         statusAlert.innerText = `🎉 寫入成功！時間：${timestamp}`;
 
         // 清空打字輸入框，保留 GPS 座標
@@ -177,11 +177,11 @@
         // 重新更新一次 GPS 定位
         autoGetGPS();
       } catch (err) {
-        statusAlert.className = "text-center text-xs p-3 rounded-lg bg-rose-950 text-rose-300 border border-rose-700 block";
+        statusAlert.className = "text-center text-xs p-3 rounded-lg bg-rose-950 text-rose-200 border border-rose-700 block";
         statusAlert.innerText = `❌ 傳送失敗: ${err.message}`;
       } finally {
         submitBtn.disabled = false;
-        submitBtn.innerText = "📤 送出紀錄 (自動記下時間與座標)";
+        submitBtn.innerText = "🌸 送出紀錄 (自動記下時間與座標)";
       }
     });
   </script>
